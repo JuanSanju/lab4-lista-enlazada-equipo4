@@ -1,7 +1,6 @@
 # src/linked_list.py
 # Estructura base — cada equipo implementa su operación asignada.
 
-
 class Node:
     """Nodo de la lista enlazada."""
 
@@ -41,40 +40,27 @@ class LinkedList:
         return count
 
     # ------------------------------------------------------------------ #
-    # TODO — Equipo A: rama feature/append                                #
-    # ------------------------------------------------------------------ #
-    def append(self, data):
-        """Inserta un nuevo nodo al final de la lista.
-
-        Args:
-            data: El valor a insertar.
-        """
-        raise NotImplementedError("Equipo A debe implementar append()")
-
-    # ------------------------------------------------------------------ #
     # TODO — Equipo B: rama feature/delete                                #
     # ------------------------------------------------------------------ #
     def delete(self, data):
-        """Elimina el primer nodo cuyo valor sea igual a data.
+        # lista vacía
+        if self.head is None:
+            return False
 
-        Args:
-            data: El valor a eliminar.
+        # el dato está en la cabeza
+        if self.head.data == data:
+            self.head = self.head.next
+            return True
 
-        Returns:
-            True si el nodo fue eliminado, False si no se encontró.
-        """
-        raise NotImplementedError("Equipo B debe implementar delete()")
+        # buscar el nodo a eliminar
+        actual = self.head
 
-    # ------------------------------------------------------------------ #
-    # TODO — Equipo C: rama feature/search                                #
-    # ------------------------------------------------------------------ #
-    def search(self, data):
-        """Busca un valor en la lista.
+        while actual.next is not None:
+            if actual.next.data == data:
+                actual.next = actual.next.next
+                return True
 
-        Args:
-            data: El valor a buscar.
+            actual = actual.next
 
-        Returns:
-            El nodo que contiene data, o None si no existe.
-        """
-        raise NotImplementedError("Equipo C debe implementar search()")
+        # no se encontró el dato
+        return False
