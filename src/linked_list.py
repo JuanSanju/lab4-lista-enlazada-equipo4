@@ -43,14 +43,21 @@ class LinkedList:
     # ------------------------------------------------------------------ #
     # TODO — Equipo A: rama feature/append                                #
     # ------------------------------------------------------------------ #
+
+# Solución
     def append(self, data):
-        """Inserta un nuevo nodo al final de la lista.
+        new_node = Node(data)
+        # caso lista vacía: el nuevo nodo se convierte en head
+        if self.head is None:
+            self.head = new_node
+            return
 
-        Args:
-            data: El valor a insertar.
-        """
-        raise NotImplementedError("Equipo A debe implementar append()")
-
+        # caso lista no vacía: recorrer hasta el último nodo y enlazar
+        current = self.head
+        while current.next is not None:
+            current = current.next
+        current.next = new_node
+        
     # ------------------------------------------------------------------ #
     # TODO — Equipo B: rama feature/delete                                #
     # ------------------------------------------------------------------ #
