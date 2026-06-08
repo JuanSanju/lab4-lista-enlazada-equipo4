@@ -40,6 +40,23 @@ class LinkedList:
         return count
 
     # ------------------------------------------------------------------ #
+    # TODO — Equipo A: rama feature/append                                #
+    # ------------------------------------------------------------------ #
+
+    def append(self, data):
+        new_node = Node(data)
+        # caso lista vacía: el nuevo nodo se convierte en head
+        if self.head is None:
+            self.head = new_node
+            return
+
+        # caso lista no vacía: recorrer hasta el último nodo y enlazar
+        current = self.head
+        while current.next is not None:
+            current = current.next
+        current.next = new_node
+        
+    # ------------------------------------------------------------------ #
     # TODO — Equipo B: rama feature/delete                                #
     # ------------------------------------------------------------------ #
     def delete(self, data):
@@ -64,3 +81,22 @@ class LinkedList:
 
         # no se encontró el dato
         return False
+  
+    # ------------------------------------------------------------------ #
+    # TODO — Equipo C: rama feature/Search                               #
+    # ------------------------------------------------------------------ #
+    def search(self, data):
+        """Busca un valor en la lista.
+
+        Args:
+            data: El valor a buscar.
+
+        Returns:
+            El nodo que contiene data, o None si no existe.
+        """
+        current = self.head
+        while current:
+            if current.data == data:
+                return current
+            current = current.next
+        return None
