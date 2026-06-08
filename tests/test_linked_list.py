@@ -24,7 +24,6 @@ def test_lista_vacia_len():
 def test_node_repr():
     n = Node(42)
     assert repr(n) == "Node(42)"
-<<<<<<< HEAD
 
 #-----------------------
 #PRUEBAS PARA LA FUNCIONALIDAD search()
@@ -58,7 +57,6 @@ def test_search_ultimo_elemento():
     nodo = ll.search(3)
     assert nodo is not None
     assert nodo.data == 3
-=======
     
 # ------------------------------------------------------------------ #
 # Pruebas Equipo A — append                                           #
@@ -89,4 +87,3 @@ def test_append_orden_preservado():
     for expected in [5, 10, 15]:
         assert current.data == expected
         current = current.next
->>>>>>> origin/main
