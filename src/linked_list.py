@@ -1,7 +1,6 @@
 # src/linked_list.py
 # Estructura base — cada equipo implementa su operación asignada.
 
-
 class Node:
     """Nodo de la lista enlazada."""
 
@@ -44,7 +43,6 @@ class LinkedList:
     # TODO — Equipo A: rama feature/append                                #
     # ------------------------------------------------------------------ #
 
-# Solución
     def append(self, data):
         new_node = Node(data)
         # caso lista vacía: el nuevo nodo se convierte en head
@@ -62,18 +60,30 @@ class LinkedList:
     # TODO — Equipo B: rama feature/delete                                #
     # ------------------------------------------------------------------ #
     def delete(self, data):
-        """Elimina el primer nodo cuyo valor sea igual a data.
+        # lista vacía
+        if self.head is None:
+            return False
 
-        Args:
-            data: El valor a eliminar.
+        # el dato está en la cabeza
+        if self.head.data == data:
+            self.head = self.head.next
+            return True
 
-        Returns:
-            True si el nodo fue eliminado, False si no se encontró.
-        """
-        raise NotImplementedError("Equipo B debe implementar delete()")
+        # buscar el nodo a eliminar
+        actual = self.head
 
+        while actual.next is not None:
+            if actual.next.data == data:
+                actual.next = actual.next.next
+                return True
+
+            actual = actual.next
+
+        # no se encontró el dato
+        return False
+  
     # ------------------------------------------------------------------ #
-    # TODO — Equipo C: rama feature/search                                #
+    # TODO — Equipo C: rama feature/Search                               #
     # ------------------------------------------------------------------ #
     def search(self, data):
         """Busca un valor en la lista.
