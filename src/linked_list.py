@@ -43,12 +43,7 @@ class LinkedList:
     # ------------------------------------------------------------------ #
     # TODO — Equipo A: rama feature/append                                #
     # ------------------------------------------------------------------ #
-    def append(self, data):
-        """Inserta un nuevo nodo al final de la lista.
 
-        Args:
-            data: El valor a insertar.
-        """
 # Solución
     def append(self, data):
         new_node = Node(data)
